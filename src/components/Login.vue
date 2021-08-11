@@ -28,16 +28,12 @@ export default defineComponent({
             console.log(formValue.value);  
         }
         return {
-            formValue: ref<FormState>({
-            username: '',
-            password: ''
-        }),
-        rules: {
+            formValue,
+            rules: {
             username: [
                 {
                     required: true,
                     validator(rule: Object, value: String){
-                        console.log(111,rule);
                         if(!value){
                             return new Error("请填写姓名！")
                         } else if(!/^\w{8}$/){
